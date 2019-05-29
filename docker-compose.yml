@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  juv:
+    container_name: juv
+    image: java8-ubuntu-vnc
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - .:/ws
+    ports:
+    - 5901:5901
+    - 6901:6901
+    environment:
+    - VNC_RESOLUTION=1440x720
+    working_dir: /ws
